@@ -1,0 +1,8 @@
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardTest\bin\Debug\CardTest.exe.config
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardTest\bin\Debug\CardTest.exe
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardTest\bin\Debug\CardTest.pdb
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardTest\bin\Debug\CardLibrary.dll
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardTest\bin\Debug\CardLibrary.pdb
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardTest\obj\Debug\CardTest.csprojResolveAssemblyReference.cache
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardTest\obj\Debug\CardTest.exe
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardTest\obj\Debug\CardTest.pdb
