@@ -8,15 +8,13 @@ namespace CardLibrary
 {
     public class Deck : Stack<Card>
     {
-        public Deck(bool populate = false, bool includeJokers = false, bool shuffle = false)
+        public static async Task<Deck> InitializeDeck(bool includeJokers)
         {
-            if (populate)
-            {
-                PopulateDeck(includeJokers);
+            var populateDeck = PopulateDeck(includeJokers);
 
-                if (shuffle)
-                    Shuffle();
-            }
+            Deck deck = await populateDeck;
+
+            return deck;
         }
 
         public void Shuffle()
@@ -64,11 +62,12 @@ namespace CardLibrary
             }
         }
 
-        public void PopulateDeck(bool includeJokers)
+        public static async Task<Deck> PopulateDeck(bool includeJokers)
         {
             int maxRank = includeJokers ? (int)Rank.Joker : (int)Rank.Ace;
             var ranks = Enum.GetValues(typeof(Rank));
             var suits = Enum.GetValues(typeof(Suit));
+            var deck = new Deck();
 
             foreach (Suit suit in suits)
             {
@@ -77,10 +76,12 @@ namespace CardLibrary
                     if ((int)rank <= maxRank)
                     {
                         var card = new Card(rank, suit);
-                        this.Push(card);
+                        deck.Push(card);
                     }
                 }
             }
+
+            return deck;
         }
     }
 }

@@ -1,0 +1,11 @@
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\bin\Debug\CardLibTest.exe.config
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\bin\Debug\CardLibTest.exe
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\bin\Debug\CardLibTest.pdb
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\bin\Debug\CardLibrary.dll
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\bin\Debug\CardLibrary.pdb
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\obj\Debug\CardLibTest.csprojResolveAssemblyReference.cache
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\obj\Debug\CardLibTest.Form1.resources
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\obj\Debug\CardLibTest.Properties.Resources.resources
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\obj\Debug\CardLibTest.csproj.GenerateResource.Cache
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\obj\Debug\CardLibTest.exe
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibTest\obj\Debug\CardLibTest.pdb

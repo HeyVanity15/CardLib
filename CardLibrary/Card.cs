@@ -51,13 +51,17 @@ namespace CardLibrary
 
         public static bool operator ==(Card left, Card right)
         {
+            // Check for null to avoid infinite recursion
+            if (ReferenceEquals(null, left))
+                return ReferenceEquals(null, right);
+
             // Both are new or of the same instance
             if (ReferenceEquals(left, right))
                 return true;
 
             // One is null, but not both
-            if (!(left == null && right == null))
-                return false;
+            //if (!(left == null && right == null))
+            //    return false;
 
             // Fields match
             return left.Equals(right);
