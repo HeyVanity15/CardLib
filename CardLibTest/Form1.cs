@@ -21,11 +21,25 @@ namespace CardLibTest
             InitializeComponent();
 
             _hand = new Hand();
+            _hand.Draw += _hand_Draw;
+        }
+
+        /// <summary>
+        /// This event handler will handle functionality of the Hand object's Draw event
+        /// Write Card information to GUI when the Draw event is raised
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void _hand_Draw(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private async void btnDeck_Click(object sender, EventArgs e)
         {
+            // Await the asynchronous InitializeDeck method in order to return control to the GUI while it is executing
             _deck = await Deck.InitializeDeck(chkJokers.Checked);
+            _deck.Shuffle();
             MessageBox.Show("Deck is ready");
         }
 
@@ -33,8 +47,7 @@ namespace CardLibTest
         {
             if (_deck != null)
             {
-                Card card = _deck.Draw();
-                _hand.Add(card);
+                Card card = _hand.DrawFromDeck(_deck);
                 label1.Text = card.ToString();
             }
         }

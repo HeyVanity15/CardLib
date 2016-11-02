@@ -8,15 +8,26 @@ namespace CardLibrary
 {
     public class Deck : Stack<Card>
     {
+        /// <summary>
+        /// Returns an instance of the Deck class.
+        /// This static method exists in order to make Deck initialization asynchronous.
+        /// Constructor methods cannot be marked async.
+        /// </summary>
+        /// <param name="includeJokers"></param>
+        /// <returns></returns>
         public static async Task<Deck> InitializeDeck(bool includeJokers)
         {
-            var populateDeck = PopulateDeck(includeJokers);
-
-            Deck deck = await populateDeck;
+            // PopulateDeck() is a synchronous method
+            // It can be on a background thread by running it inside its own Task instance
+            // This way, the method that calls PopulateDeck can run asynchronously
+            Deck deck = await Task<Deck>.Run(() => PopulateDeck(includeJokers));
 
             return deck;
         }
 
+        /// <summary>
+        /// Shuffles elements of the Deck (Stack) instance
+        /// </summary>
         public void Shuffle()
         {
             var cards = this.ToArray();
@@ -62,7 +73,12 @@ namespace CardLibrary
             }
         }
 
-        public static async Task<Deck> PopulateDeck(bool includeJokers)
+        /// <summary>
+        /// Creates a card Deck instance and returns it
+        /// </summary>
+        /// <param name="includeJokers"></param>
+        /// <returns></returns>
+        private static Deck PopulateDeck(bool includeJokers)
         {
             int maxRank = includeJokers ? (int)Rank.Joker : (int)Rank.Ace;
             var ranks = Enum.GetValues(typeof(Rank));

@@ -2,3 +2,4 @@ C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibrary\bin\Deb
 C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibrary\bin\Debug\CardLibrary.pdb
 C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibrary\obj\Debug\CardLibrary.dll
 C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibrary\obj\Debug\CardLibrary.pdb
+C:\Users\APete\documents\visual studio 2015\Projects\CardLib\CardLibrary\obj\Debug\CardLibrary.csprojResolveAssemblyReference.cache
