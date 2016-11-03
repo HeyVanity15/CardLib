@@ -41,7 +41,6 @@ namespace CardLibTest
         {
             // Await the asynchronous InitializeDeck method in order to return control to the GUI while it is executing
             _deck = await Deck.InitializeDeckAsync(chkJokers.Checked);
-            _deck.Shuffle();
             MessageBox.Show("Deck is ready");
         }
 
