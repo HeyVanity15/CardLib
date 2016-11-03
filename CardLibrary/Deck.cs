@@ -9,18 +9,25 @@ namespace CardLibrary
     public class Deck : Stack<Card>
     {
         /// <summary>
+        /// ***This may be a bad example.
+        /// Task.Run() should never be used in a method implementation.
+        /// Instead, it should be used when calling the method.***
         /// Returns an instance of the Deck class.
         /// This static method exists in order to make Deck initialization asynchronous.
         /// Constructor methods cannot be marked async.
         /// </summary>
         /// <param name="includeJokers"></param>
         /// <returns></returns>
-        public static async Task<Deck> InitializeDeck(bool includeJokers)
+        public static async Task<Deck> InitializeDeckAsync(bool includeJokers)
         {
+            // Create a Deck instance to populate and return to the caller.
+            var deck = new Deck();
             // PopulateDeck() is a synchronous method
-            // It can be on a background thread by running it inside its own Task instance
-            // This way, the method that calls PopulateDeck can run asynchronously
-            Deck deck = await Task<Deck>.Run(() => PopulateDeck(includeJokers));
+            // It can be run on a background thread by running it inside its own Task.
+            // This way, the method that calls PopulateDeck can run asynchronously.
+            // Use ConfigureAwait() to specify whether or not the task should continue on the same thread.
+            await Task.Run(() => deck.PopulateDeck(includeJokers)).ConfigureAwait(false);
+            await Task.Run(() => deck.Shuffle()).ConfigureAwait(false);
 
             return deck;
         }
@@ -56,7 +63,7 @@ namespace CardLibrary
 
             for (int i = 1; i <= quantity; i++)
             {
-                if (this.Count() <= 0)
+                if (this.Count() - quantity < 0)
                     break;
 
                 cardList.Add(this.Pop());
@@ -78,12 +85,11 @@ namespace CardLibrary
         /// </summary>
         /// <param name="includeJokers"></param>
         /// <returns></returns>
-        private static Deck PopulateDeck(bool includeJokers)
+        private void PopulateDeck(bool includeJokers)
         {
             int maxRank = includeJokers ? (int)Rank.Joker : (int)Rank.Ace;
             var ranks = Enum.GetValues(typeof(Rank));
             var suits = Enum.GetValues(typeof(Suit));
-            var deck = new Deck();
 
             foreach (Suit suit in suits)
             {
@@ -92,12 +98,10 @@ namespace CardLibrary
                     if ((int)rank <= maxRank)
                     {
                         var card = new Card(rank, suit);
-                        deck.Push(card);
+                        this.Push(card);
                     }
                 }
             }
-
-            return deck;
         }
     }
 }

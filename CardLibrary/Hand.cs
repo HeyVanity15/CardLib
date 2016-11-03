@@ -38,15 +38,17 @@ namespace CardLibrary
             {
                 card = deck.Draw();
                 _cards.Add(card);
+                // Fire the Draw event
+                OnDraw(this, EventArgs.Empty);
             }
 
             return card;
         }
 
         /// <summary>
-        /// Event handler for the draw event
-        /// This can be overridden by derived classes
-        /// This method is not necessary unless the event is handled within the same class
+        /// Event handler for the draw event.
+        /// When invoked, all objects subscribed to the event will have their methods invoked as well.
+        /// This can be overridden by derived classes.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

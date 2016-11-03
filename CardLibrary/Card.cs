@@ -60,6 +60,8 @@ namespace CardLibrary
                 return true;
 
             // One is null, but not both
+            // **** This block causes infinite recursion when checking equality.
+            // **** Need to find a solution
             //if (!(left == null && right == null))
             //    return false;
 
